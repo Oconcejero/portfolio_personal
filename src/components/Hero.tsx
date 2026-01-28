@@ -12,6 +12,7 @@ export default function Hero() {
               alt="Foto de Neku"
               width={450}
               height={450}
+              className="w-64 sm:w-72 md:w-80 lg:w-[450px] h-auto"
             />
           </div>
 

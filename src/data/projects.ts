@@ -3,7 +3,7 @@
 export const projects = [
     {
       title: "ADIDAS ORIGINALS WOMEN'S SUPERSTAR !!!",
-      description: "Proyecto página completa de ZAPATOS",
+      description: "Proyecto página completa tienda online de zapatillas",
       image: "projects/AxZapas.jpg",
       tech: "WORDPRESS - WOOCOMMERCE",
       link: "https://axzapas.ct.ws",
@@ -11,7 +11,7 @@ export const projects = [
     },
     {
       title: "Nice to meet you! I'm Adam Keyes.",
-      description: "Proyecto Portafolio Adam Keyes (Desarrollador)",
+      description: "Proyecto Portafolio de Adam Keyes responsive",
       image: "projects/AdamKeyes.jpg",
       tech: "HTML - CSS - SASS",
       link: "https://oconcejero.github.io/HTML-CSS-PORTFOLIO-ADAM/",
@@ -19,7 +19,7 @@ export const projects = [
     },
         {
       title: "MODERN ART GALLERY",
-      description: "Proyecto diseño y desarrollo de una galería de arte",
+      description: "Proyecto diseño y desarrollo de una galería de arte responsive",
       image: "projects/ModernArtGallery.jpg",
       tech: "HTML - CSS - SASS",
       link: "https://oconcejero.github.io/HTML-CSS-MODERN-ART-GALLERY/",
@@ -27,7 +27,7 @@ export const projects = [
     },
     {
       title: "Build your best community starting from here",
-      description: "Proyecto página GAMERSROOM",
+      description: "Proyecto página inicio de GathSession",
       image: "projects/GathSession.jpg",
       tech: "HTML - CSS - SASS",
       link: "https://oconcejero.github.io/HTML-CSS-HEADER-GATHSESSION/",
@@ -43,7 +43,7 @@ export const projects = [
     },
     {
       title: "JUEGOS JAVASCRIPT",
-      description: "BUSCAMINAS · SUDOKU · Proyecto ejercicios de JAVASCRIPT",
+      description: "Proyecto juegos de JAVASCRIPT",
       image: "projects/JuegosJavascript.jpg",
       tech: "HTML - CSS - SASS - JAVASCRIPT",
       link: "https://oconcejero.github.io/JAVASCRIPT-JUEGOS/",

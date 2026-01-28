@@ -1,24 +1,73 @@
+"use client";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+
 export default function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSuccess(false);
+    setError(false);
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formData,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+      );
+
+      setSuccess(true);
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (err) {
+      console.error("Error enviando email:", err);
+      setError(true);
+    }
+  };
+
   return (
-    <section className="py-20 px-4">
+    <section className="px-6 sm:px-8 md:px-12 lg:px-20 py-20">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl text-black font-bold mb-6">CONTACTA CONMIGO</h2>
         <p className="text-gray-700 mb-10">
-          Soy diseñador gráfico desde hace años que emprendió el viaje a la
-          creatividad. Después de pasar por varios trabajos, la empresa en la
-          que estaba como creativo y diseñador de producto, cerró
-          inesperadamente dejándome en la búsqueda de qué hacer con mi futuro
-          profesional.
-          <br />
-          El mundo de la programación siempre me pareció algo curioso y
-          atractivo, he intentado indagar más de una vez sobre esta área cuando
-          estudiaba mis primeros años de diseñador gráfico.
-          <br />
-          Ahora, buscando aprendizaje en desarrollo personal y laboral, me veo
-          inmerso en este amplio mundo de la programación.
+          Si quieres contactar conmigo estaré encantado y te responderé lo antes
+          posible.
         </p>
 
-        <form className="space-y-6">
+        {success && (
+          <p className="text-green-600 font-semibold mb-6">
+            ¡Mensaje enviado correctamente!
+          </p>
+        )}
+
+        {error && (
+          <p className="text-red-600 font-semibold mb-6">
+            Hubo un error al enviar el mensaje.
+          </p>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Campos */}
           <div>
             <label
               htmlFor="name"
@@ -30,7 +79,10 @@ export default function ContactForm() {
               type="text"
               id="name"
               name="name"
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-4 py-2 focus:ring focus:ring-blue-200 focus:outline-none"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-4 py-2 text-black"
             />
           </div>
 
@@ -45,7 +97,10 @@ export default function ContactForm() {
               type="email"
               id="email"
               name="email"
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-4 py-2 focus:ring focus:ring-blue-200 focus:outline-none"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-4 py-2 text-black"
             />
           </div>
 
@@ -60,7 +115,10 @@ export default function ContactForm() {
               type="text"
               id="subject"
               name="subject"
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-4 py-2 focus:ring focus:ring-blue-200 focus:outline-none"
+              value={formData.subject}
+              onChange={handleChange}
+              required
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-4 py-2 text-black"
             />
           </div>
 
@@ -75,13 +133,16 @@ export default function ContactForm() {
               id="message"
               name="message"
               rows={5}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-4 py-2 focus:ring focus:ring-blue-200 focus:outline-none"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-4 py-2 text-black"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="bg-black text-white px-6 py-2 rounded-md hover:bg-gray-800 transition"
+            className="bg-[#747474] text-white px-6 py-2 rounded-md hover:bg-gray-800 transition"
           >
             ENVIAR MENSAJE
           </button>
