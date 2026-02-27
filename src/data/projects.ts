@@ -82,4 +82,12 @@ export const projects = [
     link: "https://crm-django-3l0k.onrender.com/login",
     date: "2026-02-27",
   },
+  {
+    title: "GESTOR DE TAREAS DJANGO",
+    description: "Proyecto de Gestor de Tareas desarrollado con DJANGO",
+    image: "projects/GestorDeTareas.jpg",
+    tech: "DJANGO",
+    link: "https://gestor-de-tareas-48r5.onrender.com",
+    date: "2026-02-28",
+  },
 ];
