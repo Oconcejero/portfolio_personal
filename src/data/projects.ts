@@ -92,7 +92,7 @@ export const projects = [
   },
   {
     title: "WEB EL BAILÓN",
-    description: "Proyecto en ASTRO de escuela de baile",
+    description: "Proyecto en ASTRO de web de escuela de baile en Madrid",
     image: "projects/Web_ElBailon.jpg",
     tech: "ASTRO",
     link: "https://oconcejero.github.io/elbailon/",
