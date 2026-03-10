@@ -90,4 +90,12 @@ export const projects = [
     link: "https://gestor-de-tareas-48r5.onrender.com",
     date: "2026-02-28",
   },
+  {
+    title: "WEB EL BAILÓN",
+    description: "Proyecto en ASTRO de escuela de baile",
+    image: "projects/Web_ElBailon.jpg",
+    tech: "ASTRO",
+    link: "https://oconcejero.github.io/elbailon/",
+    date: "2026-03-10",
+  },
 ];
